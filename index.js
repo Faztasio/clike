@@ -1,9 +1,12 @@
 var require = require;
 var args = process.argv;
 const fs = require("fs");
+const path = require("path");
 
 function bufferFile(relPath) {
-  return fs.readFileSync(path.join(__dirname, relPath)).toString();
+  fs.readFile(relPath, (err,data) => {
+    return data
+  })
 };
 
 function execute(command) {
@@ -28,6 +31,6 @@ class object {
 
 module.exports = function(fileName)
   var file = bufferFile(fileName);
-  let dat = new Function("stdout.write","object",fileName);
+  let dat = new Function("stdout.write","Object",fileName);
   return dat(process.stdout.write,object);
 };
