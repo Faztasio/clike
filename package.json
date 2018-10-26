@@ -1,0 +1,6 @@
+{
+  "name": "c-like",
+  "description": "Object Oriented C-Like language.",
+  "main": "./index.js",
+  "bin": "./index.js"
+}
