@@ -1,0 +1,1 @@
+var require = require;var args = process.argv;const fs = require("fs");function bufferFile(relPath) {return fs.readFileSync(path.join(__dirname, relPath)).toString();}if (args[2]) {var fileName = args[2];var data = bufferFile(fileName);console.log(eval(data));};
