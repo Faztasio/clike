@@ -16,25 +16,18 @@ function execute(command) {
 
 class object {
   constructor() {
-    this.data = {}
+    this.data = {};
+    return this.data;
   };
-  function set(key,val) {
-    this.data[key] = val;
-  };
-  function get(key) {
-    return this.data[key];
-  };
-  function create(data) {
-    var obj = this.data
-    Object.keys(data).forEach(function(key) {
-      obj[key] = data[key]
-    }
-    return obj
-  }
 };
 
+use = function(scr) {
+  let dat = new Function("stdout.write","object","use",scr);
+  return dat(process.stdout.write,object,use);
+};
+                              
 module.exports = function(fileName)
   var file = bufferFile(fileName);
-  let dat = new Function("stdout.write","object","use",fileName);
-  return dat(process.stdout.write,object,require);
+  let dat = new Function("stdout.write","object","use",file);
+  return dat(process.stdout.write,object,use);
 };
