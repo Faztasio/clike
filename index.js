@@ -35,6 +35,6 @@ class object {
 
 module.exports = function(fileName)
   var file = bufferFile(fileName);
-  let dat = new Function("stdout.write","object",fileName);
-  return dat(process.stdout.write,object);
+  let dat = new Function("stdout.write","object","use",fileName);
+  return dat(process.stdout.write,object,require);
 };
