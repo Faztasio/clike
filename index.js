@@ -24,6 +24,13 @@ class object {
   function get(key) {
     return this.data[key];
   };
+  function create(data) {
+    var obj = this.data
+    Object.keys(data).forEach(function(key) {
+      obj[key] = data[key]
+    }
+    return obj
+  }
 };
 
 module.exports = function(fileName)
