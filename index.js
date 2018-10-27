@@ -18,19 +18,26 @@ function execute(command) {
 };
 
 class object {
-  constructor() {
-    this.data = {}
-  };
-  function set(key,val) {
-    this.data[key] = val;
-  };
-  function get(key) {
-    return this.data[key];
-  };
-};
+  constructor(form) {
+    data = class {
+      constructor(data) {
+        var a = {};
+        Object.keys(data).forEach(function(key) {
+          if (form[key]) {
+            a[key] = data[key];
+          } else {
+            stdout.write("Incorrect syntax.")
+          }
+        })
+        return a;
+      }
+    };
+    return data;
+  }
+}
 
 module.exports = function(fileName)
   var file = bufferFile(fileName);
-  let dat = new Function("stdout.write","Object",fileName);
+  let dat = new Function("Objective",file);
   return dat(process.stdout.write,object);
 };
