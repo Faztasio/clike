@@ -2,6 +2,6 @@
   "name": "c-like",
   "description": "Object Oriented C-Like language.",
   "main": "./index.js",
-  "version": "1.0.1",
+  "version": "1.3",
   "bin": "./bin/cli.js"
 }
