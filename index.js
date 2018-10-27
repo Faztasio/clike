@@ -38,6 +38,6 @@ class object {
 
 module.exports = function(fileName)
   var file = bufferFile(fileName);
-  let dat = new Function("Objective",file);
-  return dat(process.stdout.write,object);
+  let dat = new Function("Objective","println",file);
+  return dat(object,console.log);
 };
