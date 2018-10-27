@@ -9,6 +9,12 @@ function bufferFile(relPath) {
   })
 };
 
+use = function(fileName)
+  var file = bufferFile(fileName);
+  let dat = new Function("Objective","println","use",file);
+  return dat(object,console.log,use);
+};
+
 function execute(command) {
   const exec = require('child_process').exec;
 
@@ -38,6 +44,6 @@ class object {
 
 module.exports = function(fileName)
   var file = bufferFile(fileName);
-  let dat = new Function("Objective","println",file);
-  return dat(object,console.log);
+  let dat = new Function("Objective","println","use",file);
+  return dat(object,console.log,use);
 };
