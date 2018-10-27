@@ -29,16 +29,13 @@ class object {
       constructor(data) {
         var a = {};
         Object.keys(data).forEach(function(key) {
-          if (form[key]) {
-            a[key] = data[key];
-          } else {
-            stdout.write("Incorrect syntax.")
+          if (form.includes(key)) {
+            a[key] = data[key]
           }
-        })
+        }
         return a;
       }
-    };
-    return data;
+    }
   }
 }
 
